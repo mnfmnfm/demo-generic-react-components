@@ -26,7 +26,7 @@ class App extends Component {
   }
   render() {
     let joyfulHtml = this.state.joyfulThings.map((joyfulThing, i) => (
-      <InformationDisplayer information={`${i}. ${joyfulThing.name}`} key={joyfulThing.id} />
+      <InformationDisplayer information={`${i + 1}. ${joyfulThing.name}`} key={joyfulThing.id} />
     ));
     return (
       <div className="App">
