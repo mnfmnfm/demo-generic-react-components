@@ -11,7 +11,7 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    axios.get("https://joyfulthings.herokuapp.com/joyful_things").then((res) => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/joyful_things`).then((res) => {
       this.setState({
         joyfulThings: res.data
       });
@@ -31,9 +31,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Joyful Things</h1>
+          <h1 className="App-title">Joyful Things {process.env.REACT_APP_BACKEND_URL}</h1>
         </header>
-        <CreateOneItemForm inputName="name" submitURL="https://joyfulthings.herokuapp.com/joyful_things" afterSubmitted={ (data) => this.addNewJoyfulThing(data)} />
+        <CreateOneItemForm inputName="name" submitURL={process.env.REACT_APP_BACKEND_URL+ "/joyful_things"} afterSubmitted={ (data) => this.addNewJoyfulThing(data)} />
         {joyfulHtml}
       </div>
     );
